@@ -26,8 +26,9 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded.
-  dataRounding: function(value) {
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
     // Alterations go here.
     return value;
   },
@@ -37,6 +38,9 @@ var opensdg = {
   dataDisplayAlter: function(callback) {
     this.dataDisplayAlterations.push(callback);
   },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: null,
 
   language: 'fr',
 };
@@ -123,7 +127,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230424185914">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230816133803">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +150,7 @@ layout-goal
 ">
 <!-- <div class="container"> -->
 
-<script>translations['header'] = {"alpha":"Beta","default_contrast":"contraste standard","disable_high_contrast":"Désactiver le contraste élevé","disclaimer":"Ceci est un site en développement. Nous apprécions vos <a href=\"mailto:%email_address\">commentaires</a>.","enable_high_contrast":"Activer le contraste élevé","high_contrast":"contraste élevé","internet_explorer_message":"Nous avons détecté que vous utilisez Internet Explorer pour visiter ce site. Internet Explorer est en train d'être abandonné par Microsoft. Par conséquent, ce site Web ne prend plus en charge aucune version d'Internet Explorer. Certaines fonctionnalités de ce site ne fonctionneront pas. Vous devez utiliser un navigateur moderne tel que Edge, Chrome, Firefox ou Safari. Si vous avez des difficultés à installer ou à accéder à un autre navigateur, veuillez contacter votre équipe d'assistance informatique.","internet_explorer_message_title":"Ce navigateur Internet n'est plus pris en charge","skip_link":"Passer au contenu principal","tag_line":"17 objectifs pour transformer notre monde","toggle_menu":"Interrupteur du menu. Cliquez pour développer ou réduire le menu.","toggle_search":"Interrupteur de la barre. Cliquez pour développer ou réduire la barre de recherche."};</script>
+<script>translations['header'] = {"alpha":"Beta","default_contrast":"contraste standard","disable_high_contrast":"Désactiver le contraste élevé","disclaimer":"Ceci est un site en développement. Nous apprécions vos <a href=\"mailto:%email_address\">commentaires</a>.","enable_high_contrast":"Activer le contraste élevé","hide_menu":"Cacher le menu de navigation","high_contrast":"contraste élevé","internet_explorer_message":"Nous avons détecté que vous utilisez Internet Explorer pour visiter ce site. Internet Explorer est en train d'être abandonné par Microsoft. Par conséquent, ce site Web ne prend plus en charge aucune version d'Internet Explorer. Certaines fonctionnalités de ce site ne fonctionneront pas. Vous devez utiliser un navigateur moderne tel que Edge, Chrome, Firefox ou Safari. Si vous avez des difficultés à installer ou à accéder à un autre navigateur, veuillez contacter votre équipe d'assistance informatique.","internet_explorer_message_title":"Ce navigateur Internet n'est plus pris en charge","logo_title":"Aller à la page d'accueil","show_menu":"Afficher le menu de navigation","skip_link":"Passer au contenu principal","tag_line":"17 objectifs pour transformer notre monde","toggle_menu":"Interrupteur du menu. Cliquez pour développer ou réduire le menu.","toggle_search":"Interrupteur de la barre. Cliquez pour développer ou réduire la barre de recherche."};</script>
 
 <a class="sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Passer au contenu principal</a>
 <div class="container internet-explorer-message">
@@ -169,10 +173,10 @@ layout-goal
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" href="/fr/" id="home">
+            <a class="navbar-brand" href="/fr/" id="home" aria-label="Aller à la page d'accueil" title="Aller à la page d'accueil">
     <img src="/assets/img/SDG_logo.png" alt="Objectifs de développement durable - 17 objectifs pour transformer notre monde" />
 </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Afficher le menu de navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
@@ -196,7 +200,7 @@ layout-goal
         <label class="visually-hidden" for="indicator_search">Chercher</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Chercher">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Chercher" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Recherche sur le site" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -298,16 +302,28 @@ data-event-label="high"
 </div>
 
 
+
+
+
+
 <div id="main-content" class="container" role="main">
 
   
 
 
 
-  <div class="container g-0">
-    <h2 class="goal-page-heading">Cibles et indicateurs</h2>
-
-    
+  <div class="container g-0 goal-showing-progress">
+    <div class="row align-items-end">
+      <div class="col">
+        <h2 class="goal-page-heading">Cibles et indicateurs</h2>
+      </div>
+      
+      <div class="col-lg-2 d-none d-lg-block progress-column-header">
+        <span aria-hidden="true">Où en sommes-nous par rapport à l'objectif 2030 ?</span>
+      </div>
+      
+    </div>
+    <hr class="goal-page-column-header-rule">
     
       
       <div class="row align-items-start goal-target">
@@ -319,6 +335,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">D’ici à 2030, éliminer la faim et faire en sorte que chacun, en particulier les pauvres et les personnes en situation vulnérable, y compris les nourrissons, ait accès toute l’année à une alimentation saine, nutritive et suffisante</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -401,7 +420,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -409,12 +428,12 @@ data-event-label="high"
         <div class="progress-status">
         
             <div class="progress-status-label">
-                Progrès négligeable
+                Détérioration
             </div>
         
         
             <div class="progress-status-image">
-                <img src="/assets/img/progress/orange-gauge.png" alt="Progrès négligeable" />
+                <img src="/assets/img/progress/red-gauge.png" alt="Détérioration" />
             </div>
         
         </div>
@@ -438,6 +457,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">D’ici à 2030, mettre fin à toutes les formes de malnutrition, y compris en atteignant d’ici à 2025 les objectifs arrêtés à l’échelle internationale relatifs aux retards de croissance et à l’émaciation chez les enfants de moins de 5 ans, et répondre aux besoins nutritionnels des adolescentes, des femmes enceintes ou allaitantes et des personnes âgées</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -477,7 +499,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
 
@@ -523,7 +545,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
 
@@ -569,7 +591,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
 
@@ -590,6 +612,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">D’ici à 2030, doubler la productivité agricole et les revenus des petits producteurs alimentaires, en particulier des femmes, des autochtones, des exploitants familiaux, des éleveurs et des pêcheurs, y compris en assurant l’égalité d’accès aux terres, aux autres ressources productives et facteurs de production, au savoir, aux services financiers, aux marchés et aux possibilités d’ajout de valeur et d’emplois autres qu’agricoles</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -629,9 +654,25 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
+    
+    
+        <div class="progress-status">
+        
+            <div class="progress-status-label">
+                Sur la bonne voie
+            </div>
+        
+        
+            <div class="progress-status-image">
+                <img src="/assets/img/progress/green-gauge.png" alt="Sur la bonne voie" />
+            </div>
+        
+        </div>
+    
+
 
             </div>
             
@@ -675,9 +716,25 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
+    
+    
+        <div class="progress-status">
+        
+            <div class="progress-status-label">
+                Sur la bonne voie
+            </div>
+        
+        
+            <div class="progress-status-image">
+                <img src="/assets/img/progress/green-gauge.png" alt="Sur la bonne voie" />
+            </div>
+        
+        </div>
+    
+
 
             </div>
             
@@ -696,6 +753,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">D’ici à 2030, assurer la viabilité des systèmes de production alimentaire et mettre en œuvre des pratiques agricoles résilientes qui permettent d’accroître la productivité et la production, contribuent à la préservation des écosystèmes, renforcent la capacité d’adaptation aux changements climatiques, aux phénomènes météorologiques extrêmes, à la sécheresse, aux inondations et à d’autres catastrophes et améliorent progressivement la qualité des terres et des sols</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -735,7 +795,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -743,12 +803,12 @@ data-event-label="high"
         <div class="progress-status">
         
             <div class="progress-status-label">
-                Progrès modéré
+                Des progrès ont été réalisés, mais une accélération est nécessaire
             </div>
         
         
             <div class="progress-status-image">
-                <img src="/assets/img/progress/yellow-gauge.png" alt="Progrès modéré" />
+                <img src="/assets/img/progress/yellow-gauge.png" alt="Des progrès ont été réalisés, mais une accélération est nécessaire" />
             </div>
         
         </div>
@@ -772,6 +832,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">D’ici à 2020, préserver la diversité génétique des semences, des cultures et des animaux d’élevage ou domestiqués et des espèces sauvages apparentées, y compris au moyen de banques de semences et de plantes bien gérées et diversifiées aux niveaux national, régional et international, et favoriser l’accès aux avantages que présentent l’utilisation des ressources génétiques et du savoir traditionnel associé ainsi que le partage juste et équitable de ces avantages, comme convenu à l’échelle internationale</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -811,7 +874,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
 
@@ -857,7 +920,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
 
@@ -878,6 +941,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Accroître, notamment grâce au renforcement de la coopération internationale, l’investissement dans l’infrastructure rurale, les services de recherche et de vulgarisation agricoles et la mise au point de technologies et de banques de plantes et de gènes d’animaux d’élevage, afin de renforcer les capacités productives agricoles des pays en développement, en particulier des pays les moins avancés</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -917,7 +983,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -966,7 +1032,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -990,6 +1056,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Corriger et prévenir les restrictions et distorsions entravant le fonctionnement des marchés agricoles mondiaux, y compris par l’élimination parallèle de toutes les formes de subventions aux exportations agricoles et de toutes les mesures à l’exportation ayant un effet équivalent, conformément au mandat du Cycle de négociations de Doha pour le développement</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -1029,7 +1098,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -1053,6 +1122,9 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Adopter des mesures visant à assurer le bon fonctionnement des marchés de denrées alimentaires et de produits dérivés et à faciliter l’accès rapide aux informations relatives à ces marchés, y compris le niveau des réserves alimentaires, afin de contribuer à limiter l’extrême volatilité des prix alimentaires</span>
           </div>
+          
+          <div class="col-lg-2 d-none d-lg-block"></div>
+          
       </div>
         
 
@@ -1092,7 +1164,7 @@ data-event-label="high"
 
             </div>
             
-            <div class="col-lg-1 goal-page-indicator-progress">
+            <div class="col-lg-2 goal-page-indicator-progress">
               <span class="visually-hidden">Progress status</span>
               
     
@@ -1175,12 +1247,12 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1201,12 +1273,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230424185914'></script>
+<script src='/assets/js/sdg.js?v=20230816133803'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230424185914"></script><script>
+    <script src="/assets/js/custom.js?v=20230816133803"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
