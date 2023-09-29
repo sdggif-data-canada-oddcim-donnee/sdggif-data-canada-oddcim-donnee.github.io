@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 3 - Bonne santé et bien-être - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/2" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/2/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/4" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/4/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/3.png" alt="Bonne santé et bien-être - Objectif 3" id="goal-3" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Permettre à tous de vivre en bonne santé et promouvoir le bien-être de tous à tout âge</h1>
+                <h1>
+                    
+                        Permettre à tous de vivre en bonne santé et promouvoir le bien-être de tous à tout âge
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-1-1">Taux de mortalité maternelle</a></span>
+              <span class="indicator-name"><a href="/fr/3-1-1/">Taux de mortalité maternelle</a></span>
               
 
 
@@ -423,7 +444,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-1-2">Proportion d’accouchements assistés par du personnel de santé qualifié</a></span>
+              <span class="indicator-name"><a href="/fr/3-1-2/">Proportion d’accouchements assistés par du personnel de santé qualifié</a></span>
               
 
 
@@ -502,7 +523,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-2-1">Taux de mortalité des enfants de moins de 5 ans</a></span>
+              <span class="indicator-name"><a href="/fr/3-2-1/">Taux de mortalité des enfants de moins de 5 ans</a></span>
               
 
 
@@ -564,7 +585,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-2-2">Taux de mortalité néonatale</a></span>
+              <span class="indicator-name"><a href="/fr/3-2-2/">Taux de mortalité néonatale</a></span>
               
 
 
@@ -643,7 +664,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-3-1">Nombre de nouvelles infections à VIH pour 1 000 personnes séronégatives, par sexe, âge et appartenance à un groupe de population à risque</a></span>
+              <span class="indicator-name"><a href="/fr/3-3-1/">Nombre de nouvelles infections à VIH pour 1 000 personnes séronégatives, par sexe, âge et appartenance à un groupe de population à risque</a></span>
               
 
 
@@ -705,7 +726,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-3-2">Incidence de la tuberculose pour 100 000 habitants</a></span>
+              <span class="indicator-name"><a href="/fr/3-3-2/">Incidence de la tuberculose pour 100 000 habitants</a></span>
               
 
 
@@ -767,7 +788,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-3-3">Incidence du paludisme pour 1 000 habitants</a></span>
+              <span class="indicator-name"><a href="/fr/3-3-3/">Incidence du paludisme pour 100 000 habitants</a></span>
               
 
 
@@ -829,7 +850,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-3-4">Incidence de l’hépatite B pour 100 000 habitants</a></span>
+              <span class="indicator-name"><a href="/fr/3-3-4/">Incidence de l’hépatite B pour 100 000 habitants</a></span>
               
 
 
@@ -891,7 +912,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-3-5">Nombre de personnes pour lesquelles des interventions contre les maladies tropicales négligées sont nécessaires</a></span>
+              <span class="indicator-name"><a href="/fr/3-3-5/">Nombre de personnes pour lesquelles des interventions contre les maladies tropicales négligées sont nécessaires</a></span>
               
 
 
@@ -954,7 +975,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-4-1">Taux de mortalité attribuable à des maladies cardiovasculaires, au cancer, au diabète ou à des maladies respiratoires chroniques</a></span>
+              <span class="indicator-name"><a href="/fr/3-4-1/">Taux de mortalité attribuable à des maladies cardiovasculaires, au cancer, au diabète ou à des maladies respiratoires chroniques</a></span>
               
 
 
@@ -1016,7 +1037,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-4-2">Taux de mortalité par suicide</a></span>
+              <span class="indicator-name"><a href="/fr/3-4-2/">Taux de mortalité par suicide</a></span>
               
 
 
@@ -1095,7 +1116,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-5-1">Couverture des interventions thérapeutiques (services pharmacologiques, psychosociaux, services de désintoxication et de postcure) pour les troubles liés à la toxicomanie</a></span>
+              <span class="indicator-name"><a href="/fr/3-5-1/">Couverture des interventions thérapeutiques (services pharmacologiques, psychosociaux, services de désintoxication et de postcure) pour les troubles liés à la toxicomanie</a></span>
               
 
 
@@ -1141,7 +1162,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-5-2">Consommation d’alcool (en litres d’alcool pur) par habitant (âgé de 15 ans ou plus) au cours d’une année civile</a></span>
+              <span class="indicator-name"><a href="/fr/3-5-2/">Consommation d’alcool (en litres d’alcool pur) par habitant (âgé de 15 ans ou plus) au cours d’une année civile</a></span>
               
 
 
@@ -1220,7 +1241,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-6-1">Taux de mortalité lié aux accidents de la route</a></span>
+              <span class="indicator-name"><a href="/fr/3-6-1/">Taux de mortalité lié aux accidents de la route</a></span>
               
 
 
@@ -1299,7 +1320,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-7-1">Proportion de femmes en âge de procréer (15 à 49 ans) qui utilisent des méthodes modernes de planification familiale</a></span>
+              <span class="indicator-name"><a href="/fr/3-7-1/">Proportion de femmes en âge de procréer (15 à 49 ans) qui utilisent des méthodes modernes de planification familiale</a></span>
               
 
 
@@ -1311,8 +1332,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1345,7 +1366,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-7-2">Taux de natalité chez les adolescentes (10 à 14 ans et 15 à 19 ans) pour 1 000 adolescentes du même groupe d’âge</a></span>
+              <span class="indicator-name"><a href="/fr/3-7-2/">Taux de natalité chez les adolescentes (10 à 14 ans et 15 à 19 ans) pour 1 000 adolescentes du même groupe d’âge</a></span>
               
 
 
@@ -1424,7 +1445,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-8-1">Couverture des services de santé essentiels</a></span>
+              <span class="indicator-name"><a href="/fr/3-8-1/">Couverture des services de santé essentiels</a></span>
               
 
 
@@ -1470,7 +1491,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-8-2">Proportion de la population (personnes) consacrant une grande part de ses dépenses du ménage à certains articles de soins de santé en proportion du revenu total après impôt</a></span>
+              <span class="indicator-name"><a href="/fr/3-8-2/">Proportion de la population (personnes) consacrant une grande part de ses dépenses du ménage à certains articles de soins de santé en proportion du revenu total après impôt</a></span>
               
 
 
@@ -1539,7 +1560,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-9-1">Taux de mortalité attribuable à la pollution de l’air dans les habitations et à la pollution de l’air ambiant</a></span>
+              <span class="indicator-name"><a href="/fr/3-9-1/">Taux de mortalité attribuable à la pollution de l’air dans les habitations et à la pollution de l’air ambiant</a></span>
               
 
 
@@ -1585,7 +1606,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-9-2">Taux de mortalité attribuable à l’insalubrité de l’eau, aux déficiences du système d’assainissement et au manque d’hygiène (accès à des services WASH inadéquats)</a></span>
+              <span class="indicator-name"><a href="/fr/3-9-2/">Taux de mortalité attribuable à l’insalubrité de l’eau, aux déficiences du système d’assainissement et au manque d’hygiène (accès à des services WASH inadéquats)</a></span>
               
 
 
@@ -1631,7 +1652,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-9-3">Taux de mortalité attribuable à un empoisonnement accidentel</a></span>
+              <span class="indicator-name"><a href="/fr/3-9-3/">Taux de mortalité attribuable à un empoisonnement accidentel</a></span>
               
 
 
@@ -1661,12 +1682,12 @@ data-event-label="high"
         <div class="progress-status">
         
             <div class="progress-status-label">
-                Sur la bonne voie
+                Des progrès ont été réalisés, mais une accélération est nécessaire
             </div>
         
         
             <div class="progress-status-image">
-                <img src="/assets/img/progress/green-gauge.png" alt="Sur la bonne voie" />
+                <img src="/assets/img/progress/yellow-gauge.png" alt="Des progrès ont été réalisés, mais une accélération est nécessaire" />
             </div>
         
         </div>
@@ -1710,7 +1731,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-a-1">Prévalence de la consommation actuelle de tabac chez les personnes de 15 ans ou plus (taux comparatifs par âge)</a></span>
+              <span class="indicator-name"><a href="/fr/3-a-1/">Prévalence de la consommation actuelle de tabac chez les personnes de 15 ans ou plus (taux comparatifs par âge)</a></span>
               
 
 
@@ -1776,7 +1797,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-b-1">Proportion de la population cible ayant reçu tous les vaccins prévus par le programme national</a></span>
+              <span class="indicator-name"><a href="/fr/3-b-1/">Proportion de la population cible ayant reçu tous les vaccins prévus par le programme national</a></span>
               
 
 
@@ -1825,7 +1846,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-b-2">Montant total net de l’aide publique au développement consacré à la recherche médicale et aux soins de santé de base</a></span>
+              <span class="indicator-name"><a href="/fr/3-b-2/">Montant total net de l’aide publique au développement consacré à la recherche médicale et aux soins de santé de base</a></span>
               
 
 
@@ -1874,7 +1895,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-b-3">Proportion des établissements de santé disposant constamment d’un ensemble de médicaments essentiels à un coût abordable</a></span>
+              <span class="indicator-name"><a href="/fr/3-b-3/">Proportion des établissements de santé disposant constamment d’un ensemble de médicaments essentiels à un coût abordable</a></span>
               
 
 
@@ -1940,7 +1961,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-c-1">Densité et répartition du personnel de santé</a></span>
+              <span class="indicator-name"><a href="/fr/3-c-1/">Densité et répartition du personnel de santé</a></span>
               
 
 
@@ -2006,7 +2027,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-d-1">Application du Règlement sanitaire international (RSI) et degré de préparation aux urgences sanitaires</a></span>
+              <span class="indicator-name"><a href="/fr/3-d-1/">Application du Règlement sanitaire international (RSI) et degré de préparation aux urgences sanitaires</a></span>
               
 
 
@@ -2055,7 +2076,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/3-d-2">Pourcentage de septicémies causées par un organisme résistant aux antimicrobiens donné</a></span>
+              <span class="indicator-name"><a href="/fr/3-d-2/">Pourcentage de septicémies causées par un organisme résistant aux antimicrobiens donné</a></span>
               
 
 
@@ -2186,12 +2207,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

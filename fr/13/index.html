@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 13 - Mesures relatives à la lutte contre les changements climatiques - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/12" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/12/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/14" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/14/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/13.png" alt="Mesures relatives à la lutte contre les changements climatiques - Objectif 13" id="goal-13" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Prendre d’urgence des mesures pour lutter contre les changements climatiques et leurs répercussions</h1>
+                <h1>
+                    
+                        Prendre d’urgence des mesures pour lutter contre les changements climatiques et leurs répercussions
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-1-1">Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes</a></span>
+              <span class="indicator-name"><a href="/fr/13-1-1/">Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes</a></span>
               
 
 
@@ -373,8 +394,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -401,7 +422,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-1-2">Nombre de pays ayant adopté et mis en place des stratégies nationales de réduction des risques, conformément au Cadre de Sendai pour la réduction des risques de catastrophe (2015‐2030)</a></span>
+              <span class="indicator-name"><a href="/fr/13-1-2/">Nombre de pays ayant adopté et mis en place des stratégies nationales de réduction des risques, conformément au Cadre de Sendai pour la réduction des risques de catastrophe (2015‐2030)</a></span>
               
 
 
@@ -413,8 +434,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -463,7 +484,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-1-3">Proportion d’administrations locales ayant adopté et mis en place des stratégies locales de réduction des risques de catastrophe, conformément aux stratégies suivies à l’échelle nationale</a></span>
+              <span class="indicator-name"><a href="/fr/13-1-3/">Proportion d’administrations locales ayant adopté et mis en place des stratégies locales de réduction des risques de catastrophe, conformément aux stratégies suivies à l’échelle nationale</a></span>
               
 
 
@@ -475,8 +496,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -526,7 +547,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-2-1">Nombre de pays ayant prévu des contributions déterminées au niveau national, des stratégies à long terme, des plans nationaux d’adaptation ou des stratégies, tel qu’il ressort des communications relatives à l’adaptation et des communications nationales (repris à l’indicateur proposé en remplacement de l’indicateur 13.b.1, avec une modification mineure)</a></span>
+              <span class="indicator-name"><a href="/fr/13-2-1/">Nombre de pays ayant prévu des contributions déterminées au niveau national, des stratégies à long terme, des plans nationaux d’adaptation ou des stratégies, tel qu’il ressort des communications relatives à l’adaptation et des communications nationales (repris à l’indicateur proposé en remplacement de l’indicateur 13.b.1, avec une modification mineure)</a></span>
               
 
 
@@ -572,7 +593,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-2-2">Total des émissions annuelles de gaz à effet de serre</a></span>
+              <span class="indicator-name"><a href="/fr/13-2-2/">Total des émissions annuelles de gaz à effet de serre</a></span>
               
 
 
@@ -638,7 +659,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-3-1">Degré d’intégration de i) l’éducation à la citoyenneté mondiale et ii) l’éducation au développement durable dans a) les politiques nationales d’éducation, b) les programmes d’enseignement, c) la formation des enseignants et d) l’évaluation des étudiants (identique à l’amélioration à apporter aux indicateurs 4.7.1 et 12.8.1, figurant à l’annexe III)</a></span>
+              <span class="indicator-name"><a href="/fr/13-3-1/">Degré d’intégration de i) l’éducation à la citoyenneté mondiale et ii) l’éducation au développement durable dans a) les politiques nationales d’éducation, b) les programmes d’enseignement, c) la formation des enseignants et d) l’évaluation des étudiants (identique à l’amélioration à apporter aux indicateurs 4.7.1 et 12.8.1, figurant à l’annexe III)</a></span>
               
 
 
@@ -701,7 +722,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-a-1">Montant (en dollars des États-Unis) des ressources fournies et mobilisées par année relativement à l’objectif collectif actuel de mobilisation, soit 100 milliards de dollars jusqu’en 2025</a></span>
+              <span class="indicator-name"><a href="/fr/13-a-1/">Montant (en dollars des États-Unis) des ressources fournies et mobilisées par année relativement à l’objectif collectif actuel de mobilisation, soit 100 milliards de dollars jusqu’en 2025</a></span>
               
 
 
@@ -767,7 +788,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/13-b-1">Nombre de pays les moins avancés et de petits États insulaires en développement ayant prévu des contributions déterminées au niveau national, des stratégies à long terme, des plans nationaux d’adaptation ou des stratégies, tel qu’il ressort des communications relatives à l’adaptation et des communications nationales (reprend l’indicateur proposé en remplacement de l’indicateur 13.2.1, avec une modification mineure)</a></span>
+              <span class="indicator-name"><a href="/fr/13-b-1/">Nombre de pays les moins avancés et de petits États insulaires en développement ayant prévu des contributions déterminées au niveau national, des stratégies à long terme, des plans nationaux d’adaptation ou des stratégies, tel qu’il ressort des communications relatives à l’adaptation et des communications nationales (reprend l’indicateur proposé en remplacement de l’indicateur 13.2.1, avec une modification mineure)</a></span>
               
 
 
@@ -779,8 +800,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status notapplicable">
+    <span class="status-inner">Non applicable</span>
 </span>
 
 
@@ -898,12 +919,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

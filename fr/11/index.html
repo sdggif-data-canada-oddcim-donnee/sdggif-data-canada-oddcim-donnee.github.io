@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 11 - Villes et communautés durables - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/10" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/10/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/12" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/12/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/11.png" alt="Villes et communautés durables - Objectif 11" id="goal-11" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Faire en sorte que les villes et les établissements humains soient ouverts à tous, sûrs, résilients et durables</h1>
+                <h1>
+                    
+                        Faire en sorte que les villes et les établissements humains soient ouverts à tous, sûrs, résilients et durables
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-1-1">Proportion de la population urbaine vivant dans des quartiers de taudis, des implantations sauvages ou des logements inadéquats</a></span>
+              <span class="indicator-name"><a href="/fr/11-1-1/">Proportion de la population urbaine ayant des « besoins impérieux en matière de logement »</a></span>
               
 
 
@@ -378,6 +399,9 @@ data-event-label="high"
 </span>
 
 
+        </li><li class="list-inline-item">
+        
+        <span class="tag tag-proxy">Proxy</span>
         </li></ul>
 
 
@@ -440,7 +464,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-2-1">Proportion de la population ayant aisément accès aux transports publics, par âge, sexe et situation au regard du handicap</a></span>
+              <span class="indicator-name"><a href="/fr/11-2-1/">Proportion de la population ayant aisément accès aux transports publics, par âge, sexe et situation au regard du handicap</a></span>
               
 
 
@@ -503,7 +527,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-3-1">Ratio entre le taux d’utilisation des terres et le taux de croissance démographique</a></span>
+              <span class="indicator-name"><a href="/fr/11-3-1/">Ratio entre le taux d’utilisation des terres et le taux de croissance démographique</a></span>
               
 
 
@@ -549,7 +573,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-3-2">Proportion de villes dotées d’une structure de participation directe de la société civile à la gestion et à l’aménagement des villes, fonctionnant de façon régulière et démocratique</a></span>
+              <span class="indicator-name"><a href="/fr/11-3-2/">Proportion de villes dotées d’une structure de participation directe de la société civile à la gestion et à l’aménagement des villes, fonctionnant de façon régulière et démocratique</a></span>
               
 
 
@@ -561,8 +585,8 @@ data-event-label="high"
 
 
 
-<span class="status incomplete">
-    <span class="status-inner">Déclaré</span>
+<span class="status notstarted">
+    <span class="status-inner">Explorer les sources de données</span>
 </span>
 
 
@@ -612,7 +636,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-4-1">Dépenses totales par habitant consacrées à la préservation, à la protection et à la conservation de l’ensemble du patrimoine culturel et naturel, par source de financement (publique, privée), type de patrimoine (culturel, naturel) et niveau d’administration (national, régional et local/municipal)</a></span>
+              <span class="indicator-name"><a href="/fr/11-4-1/">Dépenses totales par habitant consacrées à la préservation, à la protection et à la conservation de l’ensemble du patrimoine culturel et naturel, par source de financement (publique, privée), type de patrimoine (culturel, naturel) et niveau d’administration (national, régional et local/municipal)</a></span>
               
 
 
@@ -675,7 +699,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-5-1">Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes</a></span>
+              <span class="indicator-name"><a href="/fr/11-5-1/">Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes</a></span>
               
 
 
@@ -721,7 +745,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-5-2">Pertes économiques directes mesurées par rapport au PIB mondial, dommages causés aux infrastructures critiques et nombre de perturbations des services de base résultant de catastrophes</a></span>
+              <span class="indicator-name"><a href="/fr/11-5-2/">Pertes économiques directes mesurées par rapport au PIB mondial, dommages causés aux infrastructures critiques et nombre de perturbations des services de base résultant de catastrophes</a></span>
               
 
 
@@ -784,7 +808,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-6-1">Proportion de déchets municipaux solides collectés et gérés dans des installations contrôlées sur le total des déchets municipaux générés, par ville</a></span>
+              <span class="indicator-name"><a href="/fr/11-6-1/">Proportion de déchets municipaux solides collectés et gérés dans des installations contrôlées sur le total des déchets municipaux générés, par ville</a></span>
               
 
 
@@ -801,6 +825,9 @@ data-event-label="high"
 </span>
 
 
+        </li><li class="list-inline-item">
+        
+        <span class="tag tag-proxy">Proxy</span>
         </li></ul>
 
 
@@ -846,7 +873,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-6-2">Niveau moyen annuel de particules fines (PM 2,5 et PM 10, par exemple) dans les villes, pondéré en fonction du nombre d’habitants</a></span>
+              <span class="indicator-name"><a href="/fr/11-6-2/">Niveau moyen annuel de particules fines (PM 2,5 et PM 10, par exemple) dans les villes, pondéré en fonction du nombre d’habitants</a></span>
               
 
 
@@ -925,7 +952,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-7-1">Proportion moyenne de la surface urbaine construite consacrée à des espaces publics, par sexe, âge et situation au regard du handicap</a></span>
+              <span class="indicator-name"><a href="/fr/11-7-1/">Proportion moyenne de la surface urbaine construite consacrée à des espaces publics, par sexe, âge et situation au regard du handicap</a></span>
               
 
 
@@ -971,7 +998,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-7-2">Proportion de personnes victimes de harcèlement physique ou sexuel, par sexe, âge, situation au regard du handicap et lieu des faits (au cours des 12 mois précédents)</a></span>
+              <span class="indicator-name"><a href="/fr/11-7-2/">Proportion de personnes victimes de harcèlement physique ou sexuel, par sexe, âge, situation au regard du handicap et lieu des faits (au cours des 12 mois précédents)</a></span>
               
 
 
@@ -1034,7 +1061,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-a-1">Nombre de pays ayant adopté une politique urbaine nationale ou un plan de développement régional qui a) tienne compte de la dynamique des populations, b) vise à l’équilibre du développement territorial et c) élargisse la marge de manœuvre budgétaire locale</a></span>
+              <span class="indicator-name"><a href="/fr/11-a-1/">Nombre de pays ayant adopté une politique urbaine nationale ou un plan de développement régional qui a) tienne compte de la dynamique des populations, b) vise à l’équilibre du développement territorial et c) élargisse la marge de manœuvre budgétaire locale</a></span>
               
 
 
@@ -1100,7 +1127,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-b-1">Nombre de pays ayant adopté et mis en place des stratégies nationales de réduction des risques de catastrophe, conformément au Cadre de Sendai pour la réduction des risques de catastrophe (2015‐2030)</a></span>
+              <span class="indicator-name"><a href="/fr/11-b-1/">Nombre de pays ayant adopté et mis en place des stratégies nationales de réduction des risques de catastrophe, conformément au Cadre de Sendai pour la réduction des risques de catastrophe (2015‐2030)</a></span>
               
 
 
@@ -1146,7 +1173,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/11-b-2">Proportion d’administrations locales ayant adopté et mis en place des stratégies locales de réduction des risques de catastrophe, conformément aux stratégies suivies à l’échelle nationale</a></span>
+              <span class="indicator-name"><a href="/fr/11-b-2/">Proportion d’administrations locales ayant adopté et mis en place des stratégies locales de réduction des risques de catastrophe, conformément aux stratégies suivies à l’échelle nationale</a></span>
               
 
 
@@ -1158,8 +1185,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1274,12 +1301,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

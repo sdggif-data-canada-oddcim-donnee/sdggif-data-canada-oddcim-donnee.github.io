@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 4 - Éducation de qualité - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/3" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/3/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/5" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/5/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/4.png" alt="Éducation de qualité - Objectif 4" id="goal-4" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Assurer à tous une éducation équitable, inclusive et de qualité et des possibilités d’apprentissage    tout au long de la vie</h1>
+                <h1>
+                    
+                        Assurer à tous une éducation équitable, inclusive et de qualité et des possibilités d’apprentissage    tout au long de la vie
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-1-1">Proportion d’enfants et de jeunes a) en 2e ou 3e année de cycle primaire ; b) en fin de cycle primaire ; c) en fin de premier cycle du secondaire qui maîtrisent au moins les normes d’aptitudes minimales en i) lecture et ii) mathématiques, par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/4-1-1/">Proportion d’enfants et de jeunes a) en 2e ou 3e année de cycle primaire ; b) en fin de cycle primaire ; c) en fin de premier cycle du secondaire qui maîtrisent au moins les normes d’aptitudes minimales en i) lecture et ii) mathématiques, par sexe</a></span>
               
 
 
@@ -401,7 +422,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-1-2">Taux d’achèvement (enseignement primaire, premier et deuxième cycles de l’enseignement secondaire)</a></span>
+              <span class="indicator-name"><a href="/fr/4-1-2/">Taux d’achèvement (enseignement primaire, premier et deuxième cycles de l’enseignement secondaire)</a></span>
               
 
 
@@ -480,7 +501,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-2-1">Proportion d'enfants âgés de 24 à 59 mois dont le développement est en bonne voie en matière de santé, d'apprentissage et de bien-être psychosocial, par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/4-2-1/">Proportion d'enfants âgés de 24 à 59 mois dont le développement est en bonne voie en matière de santé, d'apprentissage et de bien-être psychosocial, par sexe</a></span>
               
 
 
@@ -526,7 +547,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-2-2">Taux de participation à des activités d’apprentissage organisées (un an avant l’âge officiel de scolarisation dans le primaire), par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/4-2-2/">Taux de participation à des activités d’apprentissage organisées (un an avant l’âge officiel de scolarisation dans le primaire), par sexe</a></span>
               
 
 
@@ -605,7 +626,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-3-1">Taux de participation des jeunes et des adultes à un programme d’éducation et de formation scolaire ou non scolaire au cours des 12 mois précédents, par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/4-3-1/">Taux de participation des jeunes et des adultes à un programme d’éducation et de formation scolaire ou non scolaire au cours des 12 mois précédents, par sexe</a></span>
               
 
 
@@ -684,7 +705,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-4-1">Proportion de jeunes et d’adultes ayant des compétences dans le domaine des technologies de l’information et des communications, par type de compétence</a></span>
+              <span class="indicator-name"><a href="/fr/4-4-1/">Proportion de jeunes et d’adultes ayant des compétences dans le domaine des technologies de l’information et des communications, par type de compétence</a></span>
               
 
 
@@ -747,7 +768,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-5-1">Indices de parité (femmes/hommes, urbain/rural, quintile inférieur/supérieur de richesse et autres paramètres tels que le handicap, le statut d’autochtone et les situations de conflit, à mesure que les données deviennent disponibles) pour tous les indicateurs dans le domaine de l’éducation de cette liste pouvant être ventilés</a></span>
+              <span class="indicator-name"><a href="/fr/4-5-1/">Indices de parité (femmes/hommes, urbain/rural, quintile inférieur/supérieur de richesse et autres paramètres tels que le handicap, le statut d’autochtone et les situations de conflit, à mesure que les données deviennent disponibles) pour tous les indicateurs dans le domaine de l’éducation de cette liste pouvant être ventilés</a></span>
               
 
 
@@ -810,7 +831,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-6-1">Proportion de la population d’un groupe d’âge donné ayant les compétences voulues à au moins un niveau d’aptitude fixé a) en alphabétisme et b) arithmétique fonctionnels, par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/4-6-1/">Proportion de la population d’un groupe d’âge donné ayant les compétences voulues à au moins un niveau d’aptitude fixé a) en alphabétisme et b) arithmétique fonctionnels, par sexe</a></span>
               
 
 
@@ -873,7 +894,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-7-1">Degré d’intégration de i) l’éducation à la citoyenneté mondiale et ii) l’éducation au développement durable dans a) les politiques nationales d’éducation, b) les programmes d’enseignement, c) la formation des enseignants et d) l’évaluation des étudiants (identique à l’amélioration à apporter à l’indicateur 12.8.1 ci dessous et à la proposition de remplacement faite pour l’indicateur 13.3.1, figurant à la section A de l’annexe II)</a></span>
+              <span class="indicator-name"><a href="/fr/4-7-1/">Degré d’intégration de i) l’éducation à la citoyenneté mondiale et ii) l’éducation au développement durable dans a) les politiques nationales d’éducation, b) les programmes d’enseignement, c) la formation des enseignants et d) l’évaluation des étudiants (identique à l’amélioration à apporter à l’indicateur 12.8.1 ci dessous et à la proposition de remplacement faite pour l’indicateur 13.3.1, figurant à la section A de l’annexe II)</a></span>
               
 
 
@@ -936,7 +957,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-a-1">Proportion d’établissements scolaires offrant des services essentiels, par type de service</a></span>
+              <span class="indicator-name"><a href="/fr/4-a-1/">Proportion d’établissements scolaires offrant des services essentiels, par type de service</a></span>
               
 
 
@@ -1002,7 +1023,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-b-1">Volume de l’aide publique au développement consacrée aux bourses d’études, par secteur et type de formation</a></span>
+              <span class="indicator-name"><a href="/fr/4-b-1/">Volume de l’aide publique au développement consacrée aux bourses d’études, par secteur et type de formation</a></span>
               
 
 
@@ -1068,7 +1089,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/4-c-1">Proportion d'enseignants possédant les qualifications minimales requises, par niveau d’études</a></span>
+              <span class="indicator-name"><a href="/fr/4-c-1/">Proportion d'enseignants possédant les qualifications minimales requises, par niveau d’études</a></span>
               
 
 
@@ -1199,12 +1220,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

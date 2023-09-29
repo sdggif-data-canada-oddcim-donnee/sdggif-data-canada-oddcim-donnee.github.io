@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 16 - Paix, justice et institutions efficaces - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/15" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/15/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/17" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/17/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/16.png" alt="Paix, justice et institutions efficaces - Objectif 16" id="goal-16" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Promouvoir l’avènement de sociétés pacifiques et inclusives aux fins du développement durable, assurer l’accès de tous à la justice et mettre en place, à tous les niveaux, des institutions efficaces, responsables et ouvertes à tous</h1>
+                <h1>
+                    
+                        Promouvoir l’avènement de sociétés pacifiques et inclusives aux fins du développement durable, assurer l’accès de tous à la justice et mettre en place, à tous les niveaux, des institutions efficaces, responsables et ouvertes à tous
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-1-1">Nombre de victimes d’homicide volontaire pour 100 000 habitants, par sexe et âge</a></span>
+              <span class="indicator-name"><a href="/fr/16-1-1/">Nombre de victimes d’homicide volontaire pour 100 000 habitants, par sexe et âge</a></span>
               
 
 
@@ -423,7 +444,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-1-2">Nombre de décès liés à des conflits pour 100 000 habitants, par sexe, âge et cause</a></span>
+              <span class="indicator-name"><a href="/fr/16-1-2/">Nombre de décès liés à des conflits pour 100 000 habitants, par sexe, âge et cause</a></span>
               
 
 
@@ -469,7 +490,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-1-3">Proportion de la population victime a) de violences physiques, b) psychologiques ou c) sexuelles au cours des 12 mois précédents</a></span>
+              <span class="indicator-name"><a href="/fr/16-1-3/">Proportion de la population victime a) de violences physiques, b) psychologiques ou c) sexuelles au cours des 12 mois précédents</a></span>
               
 
 
@@ -531,7 +552,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-1-4">Nombre de personnes considérant qu’il n’y a pas de danger à se déplacer seules à pied dans leur zone de résidence, en proportion de la population totale</a></span>
+              <span class="indicator-name"><a href="/fr/16-1-4/">Nombre de personnes considérant qu’il n’y a pas de danger à se déplacer seules à pied dans leur zone de résidence, en proportion de la population totale</a></span>
               
 
 
@@ -594,7 +615,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-2-1">Proportion des enfants âgés de 1 à 17 ans ayant subi des châtiments corporels ou des agressions psychologiques infligés par une personne s’occupant d’eux au cours du mois précédent</a></span>
+              <span class="indicator-name"><a href="/fr/16-2-1/">Proportion des enfants âgés de 1 à 17 ans ayant subi des châtiments corporels ou des agressions psychologiques infligés par une personne s’occupant d’eux au cours du mois précédent</a></span>
               
 
 
@@ -606,8 +627,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status notapplicable">
+    <span class="status-inner">Non applicable</span>
 </span>
 
 
@@ -640,7 +661,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-2-2">Nombre de victimes de la traite d’êtres humains pour 100 000 habitants, par sexe, âge et forme d’exploitation</a></span>
+              <span class="indicator-name"><a href="/fr/16-2-2/">Nombre de victimes de la traite d’êtres humains pour 100 000 habitants, par sexe, âge et forme d’exploitation</a></span>
               
 
 
@@ -686,7 +707,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-2-3">Proportion de jeunes femmes et hommes de 18 à 29 ans ayant été victimes de violences sexuelles avant l’âge de 18 ans</a></span>
+              <span class="indicator-name"><a href="/fr/16-2-3/">Proportion de jeunes femmes et hommes de 18 à 29 ans ayant été victimes de violences sexuelles avant l’âge de 18 ans</a></span>
               
 
 
@@ -749,7 +770,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-3-1">Proportion des personnes victimes de violences au cours des 12 mois précédents ayant signalé les faits aux autorités compétentes ou recouru à d’autres mécanismes de règlement des différends officiellement reconnus</a></span>
+              <span class="indicator-name"><a href="/fr/16-3-1/">Proportion des personnes victimes de violences au cours des 12 mois précédents ayant signalé les faits aux autorités compétentes ou recouru à d’autres mécanismes de règlement des différends officiellement reconnus</a></span>
               
 
 
@@ -811,7 +832,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-3-2">Proportion de la population carcérale en instance de jugement</a></span>
+              <span class="indicator-name"><a href="/fr/16-3-2/">Proportion de la population carcérale en instance de jugement</a></span>
               
 
 
@@ -873,7 +894,8 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-3-3">Proportion de la population ayant connu un différend au cours des deux dernières années, avec saisine d’un mécanisme formel ou informel de règlement des différends, par type de mécanisme</a></span>
+              <span class="indicator-name"><a href="/fr/16-3-3/">Proportion de la population ayant connu un différend au cours des trois dernières années, avec saisine d'un mécanisme formel ou informel de règlement des différends, par type de mécanisme de jugement
+</a></span>
               
 
 
@@ -936,7 +958,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-4-1">Valeur totale des flux financiers illicites entrants et sortants (en dollars des États‐Unis courants)</a></span>
+              <span class="indicator-name"><a href="/fr/16-4-1/">Valeur totale des flux financiers illicites entrants et sortants (en dollars des États‐Unis courants)</a></span>
               
 
 
@@ -982,7 +1004,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-4-2">Proportion des armes saisies, trouvées ou rendues volontairement dont la provenance ou l’utilisation illicite a été retracée ou établie par des autorités compétentes, conformément aux instruments internationaux</a></span>
+              <span class="indicator-name"><a href="/fr/16-4-2/">Proportion des armes saisies, trouvées ou rendues volontairement dont la provenance ou l’utilisation illicite a été retracée ou établie par des autorités compétentes, conformément aux instruments internationaux</a></span>
               
 
 
@@ -1045,7 +1067,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-5-1">Proportion de personnes ayant eu, au moins une fois, affaire à un agent public auquel elles ont versé un pot-de-vin ou qui leur a demandé un pot-de-vin au cours des 12 mois précédents</a></span>
+              <span class="indicator-name"><a href="/fr/16-5-1/">Proportion de personnes ayant eu, au moins une fois, affaire à un agent public auquel elles ont versé un pot-de-vin ou qui leur a demandé un pot-de-vin au cours des 12 mois précédents</a></span>
               
 
 
@@ -1091,7 +1113,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-5-2">Proportion d’entreprises ayant eu au moins une fois affaire à un agent public auquel elles ont versé un pot‐de‐vin ou qui leur a demandé un pot‐de‐vin au cours des 12 mois précédents</a></span>
+              <span class="indicator-name"><a href="/fr/16-5-2/">Proportion d’entreprises ayant eu au moins une fois affaire à un agent public auquel elles ont versé un pot‐de‐vin ou qui leur a demandé un pot‐de‐vin au cours des 12 mois précédents</a></span>
               
 
 
@@ -1154,7 +1176,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-6-1">Dépenses publiques primaires en proportion du budget initial approuvé, par secteur (ou par code budgétaire ou autre critère similaire)</a></span>
+              <span class="indicator-name"><a href="/fr/16-6-1/">Dépenses publiques primaires en proportion du budget initial approuvé, par secteur (ou par code budgétaire ou autre critère similaire)</a></span>
               
 
 
@@ -1216,7 +1238,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-6-2">Proportion de la population dont la dernière expérience avec les services publics a été satisfaisante</a></span>
+              <span class="indicator-name"><a href="/fr/16-6-2/">Proportion de la population dont la dernière expérience avec les services publics a été satisfaisante</a></span>
               
 
 
@@ -1279,7 +1301,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-7-1">Répartition des postes dans les institutions nationales et locales, y compris : a) les organes législatifs ; b) la fonction publique ; c) les organes judiciaires, par rapport à la répartition nationale, par sexe, âge, situation au regard du handicap et groupe de population</a></span>
+              <span class="indicator-name"><a href="/fr/16-7-1/">Répartition des postes dans les institutions nationales et locales, y compris : a) les organes législatifs ; b) la fonction publique ; c) les organes judiciaires, par rapport à la répartition nationale, par sexe, âge, situation au regard du handicap et groupe de population</a></span>
               
 
 
@@ -1325,7 +1347,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-7-2">Proportion de la population qui estime que la prise de décisions est ouverte et réactive, par sexe, âge, situation au regard du handicap et groupe de la population</a></span>
+              <span class="indicator-name"><a href="/fr/16-7-2/">Proportion de la population qui estime que la prise de décisions est ouverte et réactive, par sexe, âge, situation au regard du handicap et groupe de la population</a></span>
               
 
 
@@ -1388,7 +1410,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-8-1">Proportion de pays en développement qui sont membres d’organisations internationales et y disposent du droit de vote</a></span>
+              <span class="indicator-name"><a href="/fr/16-8-1/">Proportion de pays en développement qui sont membres d’organisations internationales et y disposent du droit de vote</a></span>
               
 
 
@@ -1400,8 +1422,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status notapplicable">
+    <span class="status-inner">Non applicable</span>
 </span>
 
 
@@ -1451,7 +1473,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-9-1">Proportion d’enfants de moins de 5 ans ayant été enregistrés par une autorité d’état civil, par âge</a></span>
+              <span class="indicator-name"><a href="/fr/16-9-1/">Proportion d’enfants de moins de 5 ans ayant été enregistrés par une autorité d’état civil, par âge</a></span>
               
 
 
@@ -1514,7 +1536,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-10-1">Nombre de cas avérés de meurtres, d’enlèvements, de disparitions forcées, de détentions arbitraires et d’actes de torture dont ont été victimes des journalistes, des personnes travaillant dans les médias, des syndicalistes et des défenseurs des droits de l’homme au cours des 12 mois précédents</a></span>
+              <span class="indicator-name"><a href="/fr/16-10-1/">Nombre de cas avérés de meurtres, d’enlèvements, de disparitions forcées, de détentions arbitraires et d’actes de torture dont ont été victimes des journalistes, des personnes travaillant dans les médias, des syndicalistes et des défenseurs des droits de l’homme au cours des 12 mois précédents</a></span>
               
 
 
@@ -1560,7 +1582,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-10-2">Nombre de pays qui adoptent et mettent en œuvre des dispositions constitutionnelles, réglementaires et politiques pour garantir l’accès public à l’information</a></span>
+              <span class="indicator-name"><a href="/fr/16-10-2/">Nombre de pays qui adoptent et mettent en œuvre des dispositions constitutionnelles, réglementaires et politiques pour garantir l’accès public à l’information</a></span>
               
 
 
@@ -1572,8 +1594,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1639,7 +1661,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-a-1">Existence d’institutions nationales des droits de l’homme indépendantes et conformes aux Principes de Paris</a></span>
+              <span class="indicator-name"><a href="/fr/16-a-1/">Existence d’institutions nationales des droits de l’homme indépendantes et conformes aux Principes de Paris</a></span>
               
 
 
@@ -1651,8 +1673,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1705,7 +1727,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/16-b-1">Proportion de la population ayant déclaré avoir personnellement fait l’objet de discrimination ou de harcèlement au cours des 12 mois précédents pour des motifs interdits par le droit international des droits de l’homme</a></span>
+              <span class="indicator-name"><a href="/fr/16-b-1/">Proportion de la population ayant déclaré avoir personnellement fait l’objet de discrimination ou de harcèlement au cours des 12 mois précédents pour des motifs interdits par le droit international des droits de l’homme</a></span>
               
 
 
@@ -1833,12 +1855,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

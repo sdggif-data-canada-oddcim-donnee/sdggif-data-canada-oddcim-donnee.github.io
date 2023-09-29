@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -43,6 +43,20 @@ var opensdg = {
   ignoredDisaggregations: null,
 
   language: 'fr',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
 };
 
 </script>
@@ -103,14 +117,13 @@ var translations = {
         ================================================== -->
 
         
+    
     <title>Objectif 5 - Égalité entre les sexes - Indicateurs pour les objectifs de développement durable</title>
+    
 
 
 
-        <meta name="description" content="">
-        <meta property="og:description" content="">
         
-        <link rel="canonical" href="/">
 
         <!--[if IE 9]>
         <script src="/assets/js/lib/classList.js"></script>
@@ -121,13 +134,14 @@ var translations = {
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
 
+        
 
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20230817203527">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20230929202850">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -137,6 +151,9 @@ var translations = {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
         
+
+        
+
 
         <!--[if IE]>
         <link rel="stylesheet" href="/assets/css/ie.css">
@@ -277,13 +294,13 @@ data-event-label="high"
     
 <div class="previous-next-links d-flex justify-content-between">
     <div class="text-left">
-        <a class="btn btn-primary" href="/fr/4" aria-labelledby="previous-link">
+        <a class="btn btn-primary" href="/fr/4/" aria-labelledby="previous-link">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span id="previous-link" class="d-none d-md-inline">Objectif précédent</span>
         </a>
     </div>
     <div class="text-right">
-        <a class="btn btn-primary" href="/fr/6" aria-labelledby="next-link">
+        <a class="btn btn-primary" href="/fr/6/" aria-labelledby="next-link">
             <span id="next-link" class="d-none d-md-inline">Objectif suivant</span>
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
@@ -301,7 +318,11 @@ data-event-label="high"
                 <img src="https://open-sdg.org/sdg-translations/assets/img/goals/fr/5.png" alt="Égalité entre les sexes - Objectif 5" id="goal-5" class="goal-icon-image goal-icon-image-" />
             </div>
             <div class="col-8 col-md-9 col-lg-10 goal-details">
-                <h1>Parvenir à l’égalité des sexes et autonomiser toutes les femmes et les filles</h1>
+                <h1>
+                    
+                        Parvenir à l’égalité des sexes et autonomiser toutes les femmes et les filles
+                    
+                </h1>
             </div>
         </div>
     </div>
@@ -361,7 +382,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-1-1">Présence ou absence d’un cadre juridique visant à promouvoir, faire respecter et suivre l’application des principes d’égalité des sexes et de non-discrimination fondée sur le sexe</a></span>
+              <span class="indicator-name"><a href="/fr/5-1-1/">Présence ou absence d’un cadre juridique visant à promouvoir, faire respecter et suivre l’application des principes d’égalité des sexes et de non-discrimination fondée sur le sexe</a></span>
               
 
 
@@ -440,7 +461,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-2-1">Proportion de femmes et de filles âgées de 15 ans ou plus ayant vécu en couple victimes de violences physiques, sexuelles ou psychologiques infligées au cours des 12 mois précédents par leur partenaire actuel ou un ancien partenaire, par forme de violence et par âge</a></span>
+              <span class="indicator-name"><a href="/fr/5-2-1/">Proportion de femmes et de filles âgées de 15 ans ou plus ayant vécu en couple victimes de violences physiques, sexuelles ou psychologiques infligées au cours des 12 mois précédents par leur partenaire actuel ou un ancien partenaire, par forme de violence et par âge</a></span>
               
 
 
@@ -486,7 +507,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-2-2">Proportion de femmes et de filles âgées de 15 ans ou plus victimes de violences sexuelles infligées au cours des 12 mois précédents par une personne autre que leur partenaire intime, par âge et lieu des faits</a></span>
+              <span class="indicator-name"><a href="/fr/5-2-2/">Proportion de femmes et de filles âgées de 15 ans ou plus victimes de violences sexuelles infligées au cours des 12 mois précédents par une personne autre que leur partenaire intime, par âge et lieu des faits</a></span>
               
 
 
@@ -549,7 +570,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-3-1">Proportion de femmes âgées de 20 à 24 ans qui étaient mariées ou en couple avant l’âge de 15 ans ou de 18 ans</a></span>
+              <span class="indicator-name"><a href="/fr/5-3-1/">Proportion de femmes âgées de 20 à 24 ans qui étaient mariées ou en couple avant l’âge de 15 ans ou de 18 ans</a></span>
               
 
 
@@ -595,7 +616,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-3-2">Proportion de filles et de femmes âgées de 15 à 49 ans ayant subi une mutilation ou une ablation génitale, par âge</a></span>
+              <span class="indicator-name"><a href="/fr/5-3-2/">Proportion de filles et de femmes âgées de 15 à 49 ans ayant subi une mutilation ou une ablation génitale, par âge</a></span>
               
 
 
@@ -607,8 +628,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status notapplicable">
+    <span class="status-inner">Non applicable</span>
 </span>
 
 
@@ -658,7 +679,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-4-1">Proportion du temps consacré à des soins et travaux domestiques non rémunérés, par sexe, âge et lieu de résidence</a></span>
+              <span class="indicator-name"><a href="/fr/5-4-1/">Proportion du temps consacré à des soins et travaux domestiques non rémunérés, par sexe, âge et lieu de résidence</a></span>
               
 
 
@@ -721,7 +742,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-5-1">Proportion de sièges occupés par des femmes dans a) les parlements nationaux et b) les administrations locales</a></span>
+              <span class="indicator-name"><a href="/fr/5-5-1/">Proportion de sièges occupés par des femmes dans a) les parlements nationaux et b) les administrations locales</a></span>
               
 
 
@@ -783,7 +804,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-5-2">Proportion de femmes occupant des postes de direction</a></span>
+              <span class="indicator-name"><a href="/fr/5-5-2/">Proportion de femmes occupant des postes de direction</a></span>
               
 
 
@@ -862,7 +883,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-6-1">Proportion de femmes âgées de 15 à 49 ans prenant, en connaissance de cause, leurs propres décisions concernant leurs relations sexuelles, l’utilisation de contraceptifs et les soins de santé procréative</a></span>
+              <span class="indicator-name"><a href="/fr/5-6-1/">Proportion de femmes âgées de 15 à 49 ans prenant, en connaissance de cause, leurs propres décisions concernant leurs relations sexuelles, l’utilisation de contraceptifs et les soins de santé procréative</a></span>
               
 
 
@@ -908,7 +929,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-6-2">Nombre de pays dotés de textes législatifs et réglementaires garantissant aux femmes et aux hommes de 15 ans ou plus un accès équitable et sans restriction aux soins de santé sexuelle et procréative, ainsi qu’à des informations et une éducation dans ce domaine</a></span>
+              <span class="indicator-name"><a href="/fr/5-6-2/">Nombre de pays dotés de textes législatifs et réglementaires garantissant aux femmes et aux hommes de 15 ans ou plus un accès équitable et sans restriction aux soins de santé sexuelle et procréative, ainsi qu’à des informations et une éducation dans ce domaine</a></span>
               
 
 
@@ -971,7 +992,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-a-1">a) Proportion de la population agricole totale ayant des droits de propriété ou des droits garantis sur des terres agricoles, par sexe ; b) proportion de femmes parmi les titulaires de droits de propriété ou de droits garantis sur des terrains agricoles, par type de droit</a></span>
+              <span class="indicator-name"><a href="/fr/5-a-1/">a) Proportion de la population agricole totale ayant des droits de propriété ou des droits garantis sur des terres agricoles, par sexe ; b) proportion de femmes parmi les titulaires de droits de propriété ou de droits garantis sur des terrains agricoles, par type de droit</a></span>
               
 
 
@@ -1020,7 +1041,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-a-2">Proportion de pays dotés d’un cadre juridique (y compris le droit coutumier) garantissant aux femmes les mêmes droits que les hommes en matière d’accès à la propriété ou au contrôle des terres</a></span>
+              <span class="indicator-name"><a href="/fr/5-a-2/">Proportion de pays dotés d’un cadre juridique (y compris le droit coutumier) garantissant aux femmes les mêmes droits que les hommes en matière d’accès à la propriété ou au contrôle des terres</a></span>
               
 
 
@@ -1032,8 +1053,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1086,7 +1107,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-b-1">Proportion de la population possédant un téléphone portable, par sexe</a></span>
+              <span class="indicator-name"><a href="/fr/5-b-1/">Proportion de la population possédant un téléphone portable, par sexe</a></span>
               
 
 
@@ -1152,7 +1173,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/fr/5-c-1">Proportion de pays dotés de systèmes permettant de suivre et de rendre public le montant des ressources allouées à l’égalité des sexes et à l’autonomisation des femmes</a></span>
+              <span class="indicator-name"><a href="/fr/5-c-1/">Proportion de pays dotés de systèmes permettant de suivre et de rendre public le montant des ressources allouées à l’égalité des sexes et à l’autonomisation des femmes</a></span>
               
 
 
@@ -1164,8 +1185,8 @@ data-event-label="high"
 
 
 
-<span class="status notstarted">
-    <span class="status-inner">Explorer les sources de données</span>
+<span class="status complete">
+    <span class="status-inner">Déclaré</span>
 </span>
 
 
@@ -1283,12 +1304,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Chercher';</script>
 
-<script src='/assets/js/sdg.js?v=20230817203527'></script>
+<script src='/assets/js/sdg.js?v=20230929202850'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20230817203527"></script><script>
+    <script src="/assets/js/custom.js?v=20230929202850"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
