@@ -11,7 +11,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/1-1-1/",
-          "status": "notapplicable"
+          "status": "notavailable"
         },
         {
           "id": "1-2-1",
@@ -27,7 +27,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/1-2-2/",
-          "status": "notapplicable"
+          "status": "notavailable"
         },
         {
           "id": "1-3-1",
@@ -51,11 +51,11 @@
           "description": "",
           "keywords": "",
           "href": "/fr/1-4-2/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "1-5-1",
-          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes",
+          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, par 100 000 personnes",
           "description": "",
           "keywords": "",
           "href": "/fr/1-5-1/",
@@ -79,7 +79,7 @@
         },
         {
           "id": "1-5-4",
-          "title": "Nombre de pays ayant adopté et mis en place des stratégies nationales de réduction des risques de catastrophe, conformément au Cadre de Sendai pour la réduction des risques de catastrophe (2015‐2030)",
+          "title": "Proportion d’administrations locales ayant adopté et mis en place des stratégies locales de réduction des risques de catastrophe, conformément aux stratégies suivies à l’échelle nationale",
           "description": "",
           "keywords": "",
           "href": "/fr/1-5-4/",
@@ -163,7 +163,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/2-3-1/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "2-3-2",
@@ -171,7 +171,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/2-3-2/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "2-4-1",
@@ -279,7 +279,7 @@
         },
         {
           "id": "3-3-2",
-          "title": "Incidence de la tuberculose pour 100 000 habitants",
+          "title": "Incidence de la tuberculose par 100 000 habitants",
           "description": "",
           "keywords": "",
           "href": "/fr/3-3-2/",
@@ -287,7 +287,7 @@
         },
         {
           "id": "3-3-3",
-          "title": "Incidence du paludisme pour 100 000 habitants",
+          "title": "Incidence du paludisme pour 1 000 habitants",
           "description": "",
           "keywords": "",
           "href": "/fr/3-3-3/",
@@ -295,7 +295,7 @@
         },
         {
           "id": "3-3-4",
-          "title": "Incidence de l’hépatite B pour 100 000 habitants",
+          "title": "Incidence de l’hépatite B par 100 000 habitants",
           "description": "",
           "keywords": "",
           "href": "/fr/3-3-4/",
@@ -375,7 +375,7 @@
         },
         {
           "id": "3-8-2",
-          "title": "Proportion de la population (personnes) consacrant une grande part de ses dépenses du ménage à certains articles de soins de santé en proportion du revenu total après impôt",
+          "title": "Proportion de la population consacrant une grande part de ses dépenses ou de ses revenus domestiques aux services de soins de santé",
           "description": "",
           "keywords": "",
           "href": "/fr/3-8-2/",
@@ -611,7 +611,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/5-3-2/",
-          "status": "notapplicable"
+          "status": "notavailable"
         },
         {
           "id": "5-4-1",
@@ -707,7 +707,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/6-2-1/",
-          "status": "notapplicable"
+          "status": "notavailable"
         },
         {
           "id": "6-3-1",
@@ -719,7 +719,7 @@
         },
         {
           "id": "6-3-2",
-          "title": "Qualité de l'eau des cours d'eau canadiens",
+          "title": "Proportion des masses d’eau dont la qualité de l’eau ambiante est bonne",
           "description": "",
           "keywords": "",
           "href": "/fr/6-3-2/",
@@ -919,7 +919,7 @@
         },
         {
           "id": "8-8-1",
-          "title": "Number of fatality and lost time claims, by sex",
+          "title": "Nombre d’accidents du travail mortels et non mortels par 100 000 travailleurs, par sexe et statut au regard de l’immigration",
           "description": "",
           "keywords": "",
           "href": "/fr/8-8-1/",
@@ -939,11 +939,11 @@
           "description": "",
           "keywords": "",
           "href": "/fr/8-9-1/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "8-10-1",
-          "title": "a) Nombre de succursales de banques commerciales pour 100 000 adultes et b) nombre de distributeurs automatiques de billets pour 100 000 adultes",
+          "title": "a) Nombre de succursales de banques commerciales par 100 000 adultes et b) nombre de distributeurs automatiques de billets par 100 000 adultes",
           "description": "",
           "keywords": "",
           "href": "/fr/8-10-1/",
@@ -1207,7 +1207,7 @@
         
         {
           "id": "11-1-1",
-          "title": "Proportion de la population urbaine ayant des « besoins impérieux en matière de logement »",
+          "title": "Proportion de la population urbaine vivant dans des quartiers de taudis, des implantations sauvages ou des logements inadéquats",
           "description": "",
           "keywords": "",
           "href": "/fr/11-1-1/",
@@ -1219,7 +1219,7 @@
           "description": "",
           "keywords": "",
           "href": "/fr/11-2-1/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "11-3-1",
@@ -1247,7 +1247,7 @@
         },
         {
           "id": "11-5-1",
-          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes",
+          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, par 100 000 personnes",
           "description": "",
           "keywords": "",
           "href": "/fr/11-5-1/",
@@ -1367,11 +1367,11 @@
         },
         {
           "id": "12-4-2",
-          "title": "Proportion des ménages ayant des déchets ménagers dangereux, par type de traitement",
+          "title": "a) Production de déchets dangereux par habitant et b) proportion de déchets dangereux traités, par type de traitement",
           "description": "",
           "keywords": "",
           "href": "/fr/12-4-2/",
-          "status": "complete"
+          "status": "notstarted"
         },
         {
           "id": "12-5-1",
@@ -1439,7 +1439,7 @@
         
         {
           "id": "13-1-1",
-          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, pour 100 000 personnes",
+          "title": "Nombre de personnes décédées, disparues ou directement touchées lors de catastrophes, par 100 000 personnes",
           "description": "",
           "keywords": "",
           "href": "/fr/13-1-1/",
@@ -1719,7 +1719,7 @@
         
         {
           "id": "16-1-1",
-          "title": "Nombre de victimes d’homicide volontaire pour 100 000 habitants, par sexe et âge",
+          "title": "Nombre de victimes d’homicide volontaire par 100 000 habitants, par sexe et âge",
           "description": "",
           "keywords": "",
           "href": "/fr/16-1-1/",
@@ -1727,7 +1727,7 @@
         },
         {
           "id": "16-1-2",
-          "title": "Nombre de décès liés à des conflits pour 100 000 habitants, par sexe, âge et cause",
+          "title": "Nombre de décès liés à des conflits par 100 000 habitants, par sexe, âge et cause",
           "description": "",
           "keywords": "",
           "href": "/fr/16-1-2/",
@@ -1759,7 +1759,7 @@
         },
         {
           "id": "16-2-2",
-          "title": "Nombre de victimes de la traite d’êtres humains pour 100 000 habitants, par sexe, âge et forme d’exploitation",
+          "title": "Nombre de victimes de la traite d’êtres humains par 100 000 habitants, par sexe, âge et forme d’exploitation",
           "description": "",
           "keywords": "",
           "href": "/fr/16-2-2/",
@@ -1791,7 +1791,7 @@
         },
         {
           "id": "16-3-3",
-          "title": "Proportion de la population ayant connu un différend au cours des trois dernières années, avec saisine d'un mécanisme formel ou informel de règlement des différends, par type de mécanisme de jugement",
+          "title": "Proportion de la population ayant connu un différend au cours des deux dernières années, avec saisine d’un mécanisme formel ou informel de règlement des différends, par type de mécanisme",
           "description": "",
           "keywords": "",
           "href": "/fr/16-3-3/",
@@ -1975,7 +1975,7 @@
         },
         {
           "id": "17-6-1",
-          "title": "Abonnements à une connexion à Internet à haut débit fixe pour 100 habitants, par vitesse de connexion",
+          "title": "Abonnements à une connexion à Internet à haut débit fixe par 100 habitants, par vitesse de connexion",
           "description": "",
           "keywords": "",
           "href": "/fr/17-6-1/",
